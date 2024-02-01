@@ -1,0 +1,55 @@
+---
+title: "Script_Generator"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Script_Generator}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(chevron)
+library(dplyr)
+```
+
+## Introduction
+
+In addition of the embedded `run()` method to create a `tlg`, chevron offers a script-based approach that allows the
+user to quickly edit a chevron workflow without the need for modifying a `chevron_tlg` object.
+The script is generated from `script_funs` method which by default only output the script corresponding to the
+preprocessing function in the generated script.
+
+## Using a chevron-defined object
+
+The object returned by the `script` methods are vectors of character with one element per line of the script, that can be easily rendered.
+
+```{r}
+res <- script_funs(aet01, adam_db = "syn_data", args = "args_list")
+writeLines(res)
+```
+
+## With a modified chevron object
+
+The script generator depends on the functions actually stored in the object. Modifying the `chevron_tlg` object can lead to a different script.
+
+```{r}
+aet01_custom <- aet01
+preprocess(aet01_custom) <- function(adam_db, new_format, ...) {
+  reformat(adam_db, new_format)
+}
+
+res_funs <- script_funs(aet01_custom, adam_db = "syn_data", args = "args_list")
+```
+
+Print the generated scripts. Note that a new argument `new_format` has been added and the pre processing function has been modified.
+
+```{r}
+writeLines(res_funs)
+```
