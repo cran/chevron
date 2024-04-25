@@ -61,7 +61,7 @@ fstg01_main <- function(adam_db,
     arm = arm_var,
     rsp = rsp_var,
     subgroups = subgroups,
-    strata_var = strata_var
+    strata = strata_var
   )
 
   df <- execute_with_args(extract_rsp_subgroups,
@@ -75,8 +75,7 @@ fstg01_main <- function(adam_db,
     g_forest,
     tbl = result,
     ...,
-    gp = grid::gpar(fontsize = 7),
-    draw = FALSE
+    font_size = 7
   )
 }
 

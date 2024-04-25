@@ -62,7 +62,7 @@ fstg02_main <- function(adam_db,
     tte = "AVAL",
     is_event = "IS_EVENT",
     subgroups = subgroups,
-    strata_var = strata_var
+    strata = strata_var
   )
 
   df <- execute_with_args(extract_survival_subgroups,
@@ -76,8 +76,7 @@ fstg02_main <- function(adam_db,
     g_forest,
     tbl = result,
     ...,
-    gp = grid::gpar(fontsize = 7),
-    draw = FALSE
+    font_size = 7
   )
 }
 

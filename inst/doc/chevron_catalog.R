@@ -436,7 +436,7 @@ run(ttet01, proc_data, perform_analysis = "unstrat", time_point = c(91, 183))
 ## -----------------------------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "PFS", "adtte")
 
-run(chevron::ttet01, proc_data, pval_method = "wald")
+run(ttet01, proc_data, pval_method = "wald")
 
 ## -----------------------------------------------------------------------------
 t_vs_chg <- run(vst01, syn_data)
@@ -452,60 +452,66 @@ run(vst02_2, syn_data)
 l_ae_nollt <- run(ael01_nollt, syn_data)
 head(l_ae_nollt, 10)
 
-## -----------------------------------------------------------------------------
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE)
+run(kmg01, proc_data, dataset = "adtte")
 
-## -----------------------------------------------------------------------------
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE, annot_coxph = TRUE)
+run(
+  kmg01,
+  proc_data,
+  dataset = "adtte",
+  annot_coxph = TRUE,
+  control_annot_coxph = tern::control_coxph_annot(x = 0.33, y = 0.42)
+)
 
-## -----------------------------------------------------------------------------
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE, censor_show = FALSE)
+run(kmg01, proc_data, dataset = "adtte", censor_show = FALSE)
 
-## -----------------------------------------------------------------------------
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE, annot_surv_method = FALSE)
+run(kmg01, proc_data, dataset = "adtte", annot_surv_med = FALSE)
 
-## -----------------------------------------------------------------------------
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE, annot_stats = "median")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE, annot_stats = c("min", "median"))
+run(kmg01, proc_data, dataset = "adtte", annot_stats = "median")
+run(kmg01, proc_data, dataset = "adtte", annot_stats = c("min", "median"))
 
-## -----------------------------------------------------------------------------
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-run(kmg01, proc_data, dataset = "adtte", draw = TRUE, annot_at_risk = FALSE)
+run(kmg01, proc_data, dataset = "adtte", annot_at_risk = FALSE)
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "DIABP", "advs")
-run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), draw = TRUE)
+run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"))
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "DIABP", "advs")
-run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), y_var = "CHG", draw = TRUE)
+run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), y_var = "CHG")
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "DIABP", "advs")
-run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), interval_fun = "mean_sdi", draw = TRUE)
+run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), interval_fun = "mean_sdi")
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "DIABP", "advs")
 run(
   mng01, proc_data,
   dataset = "advs", x_var = c("AVISIT", "AVISITN"),
-  interval_fun = "mean_ci", draw = TRUE, control = tern::control_analyze_vars(conf_level = 0.80)
+  interval_fun = "mean_ci", control = tern::control_analyze_vars(conf_level = 0.80)
 )
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "DIABP", "advs")
-run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), table = "n", draw = TRUE)
+run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), table = "n")
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "DIABP", "advs")
-run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), table = NULL, draw = TRUE)
+run(mng01, proc_data, dataset = "advs", x_var = c("AVISIT", "AVISITN"), table = NULL)
 
-## -----------------------------------------------------------------------------
+## ----fig.height = 8-----------------------------------------------------------
 ggtheme <- ggplot2::theme(
   panel.grid = ggplot2::element_line(colour = "black", linetype = 3),
   panel.background = ggplot2::element_rect(fill = "white"),

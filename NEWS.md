@@ -1,3 +1,10 @@
+# chevron 0.2.6
+
+* Added assertion on class of `summaryvars` argument of `dmt01()`.
+* Additional arguments can be passed to `ael01_nollt` run method, for instance to split the resulting listing.
+* `strat` argument of `kmg01_main` is now deprecated - use `strata` instead.
+* `grob_list` and `gg_list` are now deprecated - use `list()` instead.
+
 # chevron 0.2.5
 
 * `MNG01` plot can now be displayed without error bars and can display a continuous temporal scale on the `x` axis.

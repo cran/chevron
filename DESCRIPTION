@@ -1,8 +1,8 @@
 Type: Package
 Package: chevron
 Title: Standard TLGs for Clinical Trials Reporting
-Version: 0.2.5
-Date: 2024-01-30
+Version: 0.2.6
+Date: 2024-04-24
 Authors@R: c(
     person("Liming", "Li", , "liming.li@roche.com", role = c("aut", "cre")),
     person("Benoit", "Falquet", , "benoit.falquet@roche.com", role = "aut"),
@@ -14,22 +14,23 @@ Authors@R: c(
     person("Tian", "Fang", , "tian.fang@roche.com", role = "ctb"),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: Provide standard tables, listings, and graphs (TLGs) libraries used in
-    clinical trials. This package implements a structure to reformat the data with
-    'dunlin', create reporting tables using 'rtables' and 'tern' with standardized
-    input arguments to enable quick generation of standard outputs.
-    In addition, it also provides comprehensive data checks and script generation functionality.
+Description: Provide standard tables, listings, and graphs (TLGs)
+    libraries used in clinical trials. This package implements a structure
+    to reformat the data with 'dunlin', create reporting tables using
+    'rtables' and 'tern' with standardized input arguments to enable quick
+    generation of standard outputs.  In addition, it also provides
+    comprehensive data checks and script generation functionality.
 License: Apache License 2.0
 URL: https://insightsengineering.github.io/chevron/,
         https://github.com/insightsengineering/chevron/
 BugReports: https://github.com/insightsengineering/chevron/issues
 Depends: R (>= 4.0.0)
 Imports: checkmate (>= 2.1.0), dplyr (>= 1.1.0), dunlin (>= 0.1.7),
-        forcats (>= 1.0.0), formatters (>= 0.5.5), ggplot2 (>= 3.4.0),
+        forcats (>= 1.0.0), formatters (>= 0.5.6), ggplot2 (>= 3.4.0),
         glue (>= 1.0.0), grid, lifecycle (>= 0.2.0), magrittr (>= 1.5),
         methods, nestcolor (>= 0.1.1), purrr (>= 0.3.0), rlang (>=
-        1.0.0), rlistings (>= 0.2.7), rtables (>= 0.6.6), stringr (>=
-        1.4.1), tern (>= 0.9.3), tibble (>= 2.0.0), utils
+        1.0.0), rlistings (>= 0.2.8), rtables (>= 0.6.7), stringr (>=
+        1.4.1), tern (>= 0.9.4), tibble (>= 2.0.0), utils
 Suggests: knitr (>= 1.42), rmarkdown (>= 2.19), testthat (>= 3.0.4),
         tidyr (>= 0.8.3), vdiffr (>= 1.0.0), withr (>= 2.1.0)
 VignetteBuilder: knitr
@@ -61,7 +62,7 @@ Collate: 'utils.R' 'chevron_tlg-S4class.R' 'ael01_nollt.R' 'aet01.R'
         'rmpt05.R' 'rmpt06.R' 'rspt01.R' 'rtables_utils.R'
         'standard_rules.R' 'ttet01.R' 'vst01.R' 'vst02.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2024-01-30 07:48:25 UTC; root
+Packaged: 2024-04-24 08:41:10 UTC; lil128
 Author: Liming Li [aut, cre],
   Benoit Falquet [aut],
   Xiaoli Duan [aut],
@@ -73,4 +74,4 @@ Author: Liming Li [aut, cre],
   F. Hoffmann-La Roche AG [cph, fnd]
 Maintainer: Liming Li <liming.li@roche.com>
 Repository: CRAN
-Date/Publication: 2024-02-01 10:30:06 UTC
+Date/Publication: 2024-04-25 02:50:03 UTC
