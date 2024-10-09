@@ -286,7 +286,10 @@ test_that("get_section_div works", {
 
 test_that("grob_list is deprecated", {
   withr::with_options(
-    list(lifecycle_verbosity = "warning"),
+    c(
+      opts_partial_match_old,
+      list(lifecycle_verbosity = "warning")
+    ),
     {
       graph <- run(chevron::mng01, syn_data, dataset = "adlb")
       graph <- ggplot2::ggplotGrob(graph[[3]])
@@ -303,7 +306,10 @@ test_that("grob_list is deprecated", {
 
 test_that("gg_list is deprecated", {
   withr::with_options(
-    list(lifecycle_verbosity = "warning"),
+    c(
+      opts_partial_match_old,
+      list(lifecycle_verbosity = "warning")
+    ),
     {
       graph <- run(chevron::mng01, syn_data, dataset = "adlb")
 
@@ -314,4 +320,32 @@ test_that("gg_list is deprecated", {
       )
     }
   )
+})
+
+test_that("format_date works as expected for POSIXct", {
+  d <- as.POSIXct("2019-01-01 00:00:01", tz = "NZ")
+
+  withr::with_timezone("Europe/Paris", {
+    foo <- format_date()
+    expect_identical(foo(d), "01JAN2019")
+  })
+
+  withr::with_timezone("NZ", {
+    foo <- format_date()
+    expect_identical(foo(d), "01JAN2019")
+  })
+})
+
+test_that("format_date works as expected for Date", {
+  d <- as.Date("2019-01-01 00:00:01", tz = "NZ")
+
+  withr::with_timezone("Europe/Paris", {
+    foo <- format_date()
+    expect_identical(foo(d), "01JAN2019")
+  })
+
+  withr::with_timezone("NZ", {
+    foo <- format_date()
+    expect_identical(foo(d), "01JAN2019")
+  })
 })

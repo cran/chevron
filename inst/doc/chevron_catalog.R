@@ -453,6 +453,52 @@ l_ae_nollt <- run(ael01_nollt, syn_data)
 head(l_ae_nollt, 10)
 
 ## ----fig.width = 10, fig.height = 6-------------------------------------------
+proc_data <- log_filter(
+  syn_data,
+  PARAMCD == "BESRSPI" & ARM %in% c("A: Drug X", "B: Placebo"), "adrs"
+)
+run(fstg01, proc_data)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg01, proc_data, conf_level = 0.90)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg01, proc_data, method = "fisher", stat_var = c("n_tot", "n", "ci", "or", "pval"))
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg01, proc_data, subgroups = NULL)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg01, proc_data, strata_var = "STRATA1")
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg01, proc_data, col_symbol_size = NULL)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+proc_data <- log_filter(
+  syn_data,
+  PARAMCD == "OS" & ARM %in% c("A: Drug X", "B: Placebo"), "adtte"
+)
+run(fstg02, proc_data)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(
+  fstg02,
+  proc_data,
+  stat_var = c("n_tot", "n", "ci", "hr", "pval"),
+  control = list(conf_level = 0.9, pval_method = "likelihood")
+)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg02, proc_data, subgroups = NULL)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg02, proc_data, strata_var = "STRATA1")
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
+run(fstg02, proc_data, col_symbol_size = NULL)
+
+## ----fig.width = 10, fig.height = 6-------------------------------------------
 proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
 run(kmg01, proc_data, dataset = "adtte")
 

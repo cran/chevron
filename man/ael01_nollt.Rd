@@ -4,7 +4,6 @@
 \name{ael01_nollt_main}
 \alias{ael01_nollt_main}
 \alias{ael01_nollt_pre}
-\alias{ael01_nollt_post}
 \alias{ael01_nollt}
 \title{\code{AEL01_NOLLT} Listing 1 (Default) Glossary of Preferred Terms and Investigator-Specified Terms.}
 \format{
@@ -16,9 +15,7 @@ ael01_nollt_main(
   dataset = "adae",
   key_cols = c("AEBODSYS", "AEDECOD"),
   disp_cols = "AETERM",
-  default_formatting = list(all = fmt_config(align = "left"), numeric = fmt_config(align
-    = "center")),
-  col_formatting = NULL,
+  split_into_pages_by_var = NULL,
   unique_rows = TRUE,
   ...
 )
@@ -31,36 +28,28 @@ ael01_nollt_pre(
   ...
 )
 
-ael01_nollt_post(tlg, ...)
-
 ael01_nollt
 }
 \arguments{
 \item{adam_db}{(\code{list} of \code{data.frames}) object containing the \code{ADaM} datasets}
 
-\item{dataset}{(\code{character}) the name of a table in the \code{adam_db} object.}
+\item{dataset}{(\code{string}) the name of a table in the \code{adam_db} object.}
 
 \item{key_cols}{(\code{character}) names of columns that should be treated as key columns when rendering the listing.
 Key columns allow you to group repeat occurrences.}
 
 \item{disp_cols}{(\code{character}) names of non-key columns which should be displayed when the listing is rendered.}
 
-\item{default_formatting}{(\code{list}) the default format of the listing columns. See \code{\link[rlistings:listings]{rlistings::as_listing}}.}
-
-\item{col_formatting}{(\code{list}) the format of specific listing columns. See \code{\link[rlistings:listings]{rlistings::as_listing}}.}
+\item{split_into_pages_by_var}{(\code{character} or \code{NULL}) the name of the variable to split the listing by.}
 
 \item{unique_rows}{(\code{flag}) whether to keep only unique rows in listing.}
 
 \item{...}{additional arguments passed to \code{\link[rlistings:listings]{rlistings::as_listing}}.}
-
-\item{tlg}{(\code{TableTree}, \code{Listing} or \code{ggplot}) object typically produced by a \code{main} function.}
 }
 \value{
 the main function returns an \code{rlistings} or a \code{list} object.
 
 the preprocessing function returns a \code{list} of \code{data.frame}.
-
-the postprocessing function returns an \code{rlistings} object or an \code{ElementaryTable} (null report).
 }
 \description{
 \code{AEL01_NOLLT} Listing 1 (Default) Glossary of Preferred Terms and Investigator-Specified Terms.
@@ -78,8 +67,6 @@ the postprocessing function returns an \code{rlistings} object or an \code{Eleme
 \item \code{ael01_nollt_main()}: Main TLG function
 
 \item \code{ael01_nollt_pre()}: Preprocessing
-
-\item \code{ael01_nollt_post()}: Postprocessing
 
 }}
 \note{

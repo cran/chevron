@@ -1,3 +1,13 @@
+# chevron 0.2.7
+
+* Add the `AEL02`, `AEL03` and `CML02A_gl` templates.
+* Modify the post processing of `MHT01` to allow multiple `row_split_var`.
+* Improve the `report_null` method to facilitate the creation of null reports.
+* Export the `std_postprocessing` function to simplify post processing logic.
+* `AET01` can now additionally display the number of death and withdrawal using the `show_wd` argument.
+* `MNG01` line type can now be controlled with the `line_type` argument.
+* `script_funs` doesn't rely anymore on source code of pre processing functions.
+
 # chevron 0.2.6
 
 * Added assertion on class of `summaryvars` argument of `dmt01()`.
@@ -8,7 +18,7 @@
 # chevron 0.2.5
 
 * `MNG01` plot can now be displayed without error bars and can display a continuous temporal scale on the `x` axis.
-* Add a `chevron_simple` class only contain main function.
+* Add a `chevron_simple` class which only contains main function.
 * Remove `details` argument in `script_funs`, add `name` argument.
 * In the `run` method, the argument passed through `...` are combined with the one passed through `user_arg`. `...` arguments have priority.
 * `AET05` preprocessing now filters on `"(AE|CQ|SMQ)TTE"` rather than `"AETTE"`.

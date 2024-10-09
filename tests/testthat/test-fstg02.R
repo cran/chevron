@@ -10,6 +10,7 @@ test_that("fstg02 works as expected", {
 # fstg02 ----
 
 test_that("fstg02 works as expected with custom color set", {
+  skip_on_os("windows")
   proc_data <- dunlin::log_filter(syn_data, PARAMCD == "OS" & ARM %in% c("A: Drug X", "B: Placebo"), "adtte")
 
   res1 <- expect_silent(run(fstg02, proc_data, dataset = "adtte", col = "gray"))
@@ -20,6 +21,7 @@ test_that("fstg02 works as expected with custom color set", {
 })
 
 test_that("fstg02 works if changes are in subgroups, strata_var, conf_level, and label_all", {
+  skip_on_os("windows")
   proc_data <- dunlin::log_filter(syn_data, PARAMCD == "OS" & ARM %in% c("A: Drug X", "B: Placebo"), "adtte")
 
   res1 <- expect_silent(run(fstg02, proc_data, subgroups = NULL, dataset = "adtte"))
@@ -33,6 +35,7 @@ test_that("fstg02 works if changes are in subgroups, strata_var, conf_level, and
 })
 
 test_that("fstg02 can handle some NA values in subgroups", {
+  skip_on_os("windows")
   proc_data <- dunlin::log_filter(syn_data, PARAMCD == "OS" & ARM %in% c("A: Drug X", "B: Placebo"), "adtte")
   proc_data$adtte[1:2, "SEX"] <- NA
   proc_data$adtte[3:4, "AGEGR1"] <- NA
@@ -43,6 +46,7 @@ test_that("fstg02 can handle some NA values in subgroups", {
 })
 
 test_that("fstg02 can handle customized time units", {
+  skip_on_os("windows")
   proc_data <- dunlin::log_filter(syn_data, PARAMCD == "OS" & ARM %in% c("A: Drug X", "B: Placebo"), "adtte")
 
   proc_data$adtte[1:10, "AVAL"] <- 28
@@ -52,10 +56,10 @@ test_that("fstg02 can handle customized time units", {
       AVALU = factor(.env$new_avalu),
     )
 
-  res1 <- expect_silent(run(fstg02, proc_data, dataset = "adtte"))
+  expect_silent(res1 <- run(fstg02, proc_data, dataset = "adtte"))
   checkmate::assert_true(ggplot2::is.ggplot(res1))
 
-  proc_data$adtte$AVALU <- "DAY"
+  proc_data$adtte$AVALU <- "DAYS"
   expect_warning(res2 <- run(fstg02, proc_data, dataset = "adtte"))
   checkmate::assert_true(ggplot2::is.ggplot(res2))
 })

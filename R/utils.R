@@ -34,26 +34,33 @@ smart_prune <- function(tlg) {
   res
 }
 
-#' Standard post processing
+#' Standard Main Listing Function
 #'
-#' @param tlg (`TableTree`) object.
-#' @param ind (`integer`) the indentation of the table.
-#' @param ... not used at the moment.
-#'
-#' @note Standard post processing includes:
-#' * `NULL` report creation if necessary
-#' * indentation
-#'
-#' @returns a post-processed `tlg`.
+#' @inheritParams gen_args
+#' @param ... additional arguments passed to [`rlistings::as_listing`].
+#' @returns the main function returns an `rlistings` or a `list` object.
 #'
 #' @keywords internal
-std_postprocess <- function(tlg, ind = 2L, ...) {
-  assert_int(ind, lower = 0L)
+std_listing <- function(adam_db,
+                        dataset,
+                        key_cols,
+                        disp_cols,
+                        split_into_pages_by_var,
+                        unique_rows = FALSE,
+                        ...) {
+  assert_all_tablenames(adam_db, dataset)
+  assert_valid_variable(adam_db[[dataset]], c(key_cols, disp_cols), label = paste0("adam_db$", dataset))
 
-  res <- report_null(tlg)
-  table_inset(res) <- ind
-
-  res
+  execute_with_args(
+    as_listing,
+    df = adam_db[[dataset]],
+    key_cols = key_cols,
+    disp_cols = disp_cols,
+    split_into_pages_by_var = split_into_pages_by_var,
+    ...,
+    default_formatting = listing_format_chevron(),
+    unique_rows = unique_rows
+  )
 }
 
 # Special formats ----
@@ -389,4 +396,72 @@ grob_list <- function(...) {
 gg_list <- function(...) {
   lifecycle::deprecate_warn("0.2.5.9009", "gg_list()", "list()")
   list(...)
+}
+
+
+#' Format for Chevron Listings
+#'
+#' @return a `list` of `fmt_config`.
+#'
+listing_format_chevron <- function() {
+  list(
+    all = fmt_config(align = "left"),
+    numeric = fmt_config(align = "center"),
+    Date = fmt_config(format = format_date(), align = "left"),
+    POSIXct = fmt_config(format = format_date(), align = "left"),
+    POSIXt = fmt_config(format = format_date(), align = "left")
+  )
+}
+
+#' Formatting of date
+#'
+#' @param date_format (`string`) the output format.
+#'
+#' @return a `function` converting a date into `string`.
+#'
+#' @note The date is extracted at the location of the measure, not at the location of the system.
+#'
+#' @export
+#' @examples
+#' format_date("%d%b%Y")(as.Date("2021-01-01"))
+#' if ("NZ" %in% OlsonNames()) {
+#'   format_date("%d%b%Y")(as.POSIXct("2021-01-01 00:00:01", tz = "NZ"))
+#' }
+#' if ("US/Pacific" %in% OlsonNames()) {
+#'   format_date("%d%b%Y")(as.POSIXct("2021-01-01 00:00:01", tz = "US/Pacific"))
+#' }
+format_date <- function(date_format = "%d%b%Y") {
+  function(x, ...) {
+    toupper(
+      format(
+        # Extract the date at the location of the measure, not at the location of the system.
+        lubridate::force_tz(x, tzone = "UTC"),
+        date_format,
+        tz = "UTC"
+      )
+    )
+  }
+}
+
+# listing_id ----
+
+#' Concatenate Site and Subject ID
+#'
+#' @param site (`string`)
+#' @param subject (`string`)
+#' @param sep (`string`)
+#'
+#' @note the `{Patient_label}` whisker placeholder will be used in the label.
+#'
+#' @export
+#' @examples
+#' create_id_listings("BRA-1", "xxx-1234")
+create_id_listings <- function(site, subject, sep = "/") {
+  assert_character(site)
+  assert_character(subject)
+  assert_string(sep)
+
+  subject_id <- stringr::str_split_i(subject, pattern = "-", i = -1)
+
+  with_label(paste(site, subject_id, sep = sep), render_safe("Center/{Patient_label} ID"))
 }
