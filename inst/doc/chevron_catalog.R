@@ -9,8 +9,8 @@ library(dunlin)
 library(chevron)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  std_data <- list(adsl = adsl, adae = adae)
-#  run(object = aet01_nollt, adam_db = std_data)
+# std_data <- list(adsl = adsl, adae = adae)
+# run(object = aet01_nollt, adam_db = std_data)
 
 ## -----------------------------------------------------------------------------
 proc_data <- syn_data
@@ -22,22 +22,22 @@ proc_data$adsl <- proc_data$adsl %>%
   ))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  run(dmt01, proc_data)
+# run(dmt01, proc_data)
 
 ## -----------------------------------------------------------------------------
 proc_data$adsl$RACE <- as.factor(proc_data$adsl$RACE)
 run(dmt01, proc_data)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
-#  
-#  # method 1
-#  run(kmg01, proc_data, dataset = "adtte", draw = TRUE)
-#  
-#  # method 2
-#  res <- run(kmg01, proc_data, dataset = "adtte")
-#  grid::grid.newpage()
-#  grid::grid.draw(res)
+# proc_data <- log_filter(syn_data, PARAMCD == "OS", "adtte")
+# 
+# # method 1
+# run(kmg01, proc_data, dataset = "adtte", draw = TRUE)
+# 
+# # method 2
+# res <- run(kmg01, proc_data, dataset = "adtte")
+# grid::grid.newpage()
+# grid::grid.draw(res)
 
 ## -----------------------------------------------------------------------------
 tbl <- run(dmt01, syn_data) # table with column counts
@@ -129,6 +129,19 @@ run(aet10, syn_data)
 
 ## -----------------------------------------------------------------------------
 run(aet10, syn_data, atleast = 0.08)
+
+## -----------------------------------------------------------------------------
+proc_data <- log_filter(
+  syn_data,
+  PARAMCD %in% c("DIABP", "SYSBP"), "advs"
+)
+run(cfbt01, proc_data, dataset = "advs")
+
+## -----------------------------------------------------------------------------
+run(cfbt01, proc_data, dataset = "advs", skip = list(CHG = c("SCREENING", "BASELINE")))
+
+## -----------------------------------------------------------------------------
+run(cfbt01, proc_data, dataset = "advs", summaryvars = "AVAL")
 
 ## -----------------------------------------------------------------------------
 run(cmt01a, syn_data)

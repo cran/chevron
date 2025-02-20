@@ -1,17 +1,21 @@
 Type: Package
 Package: chevron
 Title: Standard TLGs for Clinical Trials Reporting
-Version: 0.2.7
-Date: 2024-09-27
+Version: 0.2.10
+Date: 2025-02-17
 Authors@R: c(
-    person("Liming", "Li", , "liming.li@roche.com", role = c("aut", "cre")),
-    person("Benoit", "Falquet", , "benoit.falquet@roche.com", role = "aut"),
+    person("Liming", "Li", , "liming.li@roche.com", role = "aut",
+           comment = "Original creator of the package"),
+    person("Benoit", "Falquet", , "benoit.falquet@roche.com", role = "aut",
+           comment = "Original creator of the package"),
     person("Xiaoli", "Duan", , "xiaoli.duan@roche.com", role = "aut"),
     person("Adrian", "Waddell", , "waddell.adrian@gene.com", role = "ctb"),
     person("Chenkai", "Lv", , "chenkai.lv@roche.com", role = "ctb"),
     person("Pawel", "Rucki", , "pawel.rucki@roche.com", role = "ctb"),
     person("Tim", "Barnett", , "timothy.barnett@roche.com", role = "ctb"),
     person("Tian", "Fang", , "tian.fang@roche.com", role = "ctb"),
+    person("Joe", "Zhu", , "joe.zhu@roche.com", role = "cre",
+           comment = c(ORCID = "0000-0001-7566-2787")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
 Description: Provide standard tables, listings, and graphs (TLGs)
@@ -24,17 +28,17 @@ License: Apache License 2.0
 URL: https://insightsengineering.github.io/chevron/,
         https://github.com/insightsengineering/chevron/
 BugReports: https://github.com/insightsengineering/chevron/issues
-Depends: R (>= 4.0.0)
-Imports: checkmate (>= 2.1.0), dplyr (>= 1.1.0), dunlin (>= 0.1.7),
-        forcats (>= 1.0.0), formatters (>= 0.5.9), ggplot2 (>= 3.4.0),
+Depends: R (>= 4.1.0)
+Imports: checkmate (>= 2.1.0), dplyr (>= 1.1.0), dunlin (>= 0.1.8),
+        forcats (>= 1.0.0), formatters (>= 0.5.10), ggplot2 (>= 3.4.0),
         glue (>= 1.0.0), grid, lifecycle (>= 0.2.0), lubridate (>=
         1.7.8), magrittr (>= 1.5), methods, nestcolor (>= 0.1.1), purrr
-        (>= 0.3.0), rlang (>= 1.0.0), rlistings (>= 0.2.9), rtables (>=
-        0.6.10), stringr (>= 1.4.1), tern (>= 0.9.6), tibble (>=
+        (>= 0.3.0), rlang (>= 1.0.0), rlistings (>= 0.2.10), rtables
+        (>= 0.6.11), stringr (>= 1.4.1), tern (>= 0.9.7), tibble (>=
         2.0.0), utils
 Suggests: knitr (>= 1.42), rmarkdown (>= 2.23), testthat (>= 3.0.4),
-        tidyr (>= 0.8.3), vdiffr (>= 1.0.0), withr (>= 2.1.0)
-VignetteBuilder: knitr
+        tidyr (>= 0.8.3), vdiffr (>= 1.0.7), withr (>= 2.1.0)
+VignetteBuilder: knitr, rmarkdown
 Config/Needs/verdepcheck: mllg/checkmate, tidyverse/dplyr,
         insightsengineering/dunlin, tidyverse/forcats,
         insightsengineering/formatters, tidyverse/ggplot2,
@@ -63,18 +67,19 @@ Collate: 'report_null.R' 'utils.R' 'chevron_tlg-S4class.R'
         'mht01.R' 'mng01.R' 'package.R' 'pdt01.R' 'pdt02.R'
         'reexports.R' 'rmpt01.R' 'rmpt03.R' 'rmpt04.R' 'rmpt05.R'
         'rmpt06.R' 'rspt01.R' 'rtables_utils.R' 'standard_rules.R'
-        'ttet01.R' 'vst01.R' 'vst02.R' 'zzz.R'
+        'ttet01.R' 'unwrap.R' 'vst01.R' 'vst02.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2024-10-09 04:54:52 UTC; root
-Author: Liming Li [aut, cre],
-  Benoit Falquet [aut],
+Packaged: 2025-02-19 17:18:18 UTC; rstudio
+Author: Liming Li [aut] (Original creator of the package),
+  Benoit Falquet [aut] (Original creator of the package),
   Xiaoli Duan [aut],
   Adrian Waddell [ctb],
   Chenkai Lv [ctb],
   Pawel Rucki [ctb],
   Tim Barnett [ctb],
   Tian Fang [ctb],
+  Joe Zhu [cre] (<https://orcid.org/0000-0001-7566-2787>),
   F. Hoffmann-La Roche AG [cph, fnd]
-Maintainer: Liming Li <liming.li@roche.com>
+Maintainer: Joe Zhu <joe.zhu@roche.com>
 Repository: CRAN
-Date/Publication: 2024-10-09 06:00:02 UTC
+Date/Publication: 2025-02-20 08:20:09 UTC

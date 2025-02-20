@@ -1,3 +1,20 @@
+# chevron 0.2.10
+
+* Change package maintainer to Joe Zhu.
+
+# chevron 0.2.9
+
+* The default precision for parameters in `egt01` is now of 0 digits.
+* `vst01` default precision for diastolic blood pressure, systolic blood pressure and pulse rate is now 0. Default precision for other parameters remains 2.
+* `lbt01` default precision for several parameters is now provided by the `lab_paramcd_precision` function.
+* `lbt05` now prints a clearer error message when `PARAM`, `AVALCAT1` and `ABN_DIR` variables in `adlb` are not of class `factor`.
+* `ttet01_main` now prints a clearer error message when a level in `arm_var` variable is missing.
+
+# chevron 0.2.8
+
+* New `unwrap` argument prints `preprocessing`, `main`, `postprocessing` and `layout` function upon execution of the `run` method.
+* The `chevron.run.verbose` option and `R_CHEVRON_RUN_VERBOSE` environment variable control the `verbose` argument of the `run` method, while the `chevron.run.unwrap` option and `R_CHEVRON_RUN_UNWRAP` environment variable control the `unwrap` argument.
+
 # chevron 0.2.7
 
 * Add the `AEL02`, `AEL03` and `CML02A_gl` templates.
