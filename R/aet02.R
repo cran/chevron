@@ -83,8 +83,9 @@ aet02_main <- function(adam_db,
 aet02_pre <- function(adam_db, row_split_var = "AEBODSYS", ...) {
   adam_db$adae <- adam_db$adae %>%
     filter(.data$ANL01FL == "Y") %>%
-    mutate(AEDECOD = reformat(.data$AEDECOD, nocoding)) %>%
-    mutate(across(all_of(row_split_var), ~ reformat(.x, nocoding)))
+    mutate(AEDECOD = with_label(reformat(.data$AEDECOD, nocoding), "MedDRA Preferred Term")) %>%
+    mutate(across(all_of(row_split_var), ~ reformat(.x, nocoding))) %>%
+    mutate(AEBODSYS = with_label(.data$AEBODSYS, "MedDRA System Organ Class"))
 
   adam_db
 }
@@ -121,5 +122,6 @@ aet02_post <- function(tlg, row_split_var = "AEBODSYS", prune_0 = TRUE, ...) {
 aet02 <- chevron_t(
   main = aet02_main,
   preprocess = aet02_pre,
-  postprocess = aet02_post
+  postprocess = aet02_post,
+  dataset = c("adsl", "adae")
 )

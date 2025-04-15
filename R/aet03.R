@@ -116,8 +116,8 @@ aet03_pre <- function(adam_db, ...) {
   adam_db$adae <- adam_db$adae %>%
     filter(.data$ANL01FL == "Y") %>%
     mutate(
-      AEBODSYS = reformat(.data$AEBODSYS, nocoding),
-      AEDECOD = reformat(.data$AEDECOD, nocoding),
+      AEBODSYS = with_label(reformat(.data$AEBODSYS, nocoding), "MedDRA System Organ Class"),
+      AEDECOD = with_label(reformat(.data$AEDECOD, nocoding), "MedDRA Preferred Term"),
       ASEV = factor(.data$ASEV, levels = asev_lvls)
     ) %>%
     filter(!is.na(.data$ASEV))
@@ -154,5 +154,6 @@ aet03_post <- function(tlg, prune_0 = TRUE, ...) {
 aet03 <- chevron_t(
   main = aet03_main,
   preprocess = aet03_pre,
-  postprocess = aet03_post
+  postprocess = aet03_post,
+  dataset = c("adsl", "adae")
 )
