@@ -1,8 +1,8 @@
 Type: Package
 Package: chevron
 Title: Standard TLGs for Clinical Trials Reporting
-Version: 0.2.11
-Date: 2025-04-15
+Version: 0.2.12
+Date: 2025-06-18
 Authors@R: c(
     person("Liming", "Li", , "liming.li@roche.com", role = "aut",
            comment = c(ORCID = "0009-0008-6870-0878", "Original creator of the package")),
@@ -33,8 +33,8 @@ Imports: checkmate (>= 2.1.0), dplyr (>= 1.1.0), dunlin (>= 0.1.10),
         forcats (>= 1.0.0), formatters (>= 0.5.11), ggplot2 (>= 3.4.0),
         glue (>= 1.0.0), grid, lifecycle (>= 0.2.0), lubridate (>=
         1.7.8), magrittr (>= 1.5), methods, nestcolor (>= 0.1.1), purrr
-        (>= 0.3.0), rlang (>= 1.0.0), rlistings (>= 0.2.11), rtables
-        (>= 0.6.12), stringr (>= 1.4.1), tern (>= 0.9.8), tibble (>=
+        (>= 0.3.0), rlang (>= 1.0.0), rlistings (>= 0.2.12), rtables
+        (>= 0.6.13), stringr (>= 1.4.1), tern (>= 0.9.9), tibble (>=
         2.0.0), utils
 Suggests: knitr (>= 1.42), rmarkdown (>= 2.23), testthat (>= 3.0.4),
         tidyr (>= 0.8.3), vdiffr (>= 1.0.7), withr (>= 2.1.0)
@@ -69,19 +69,19 @@ Collate: 'report_null.R' 'utils.R' 'chevron_tlg-S4class.R'
         'rmpt06.R' 'rspt01.R' 'rtables_utils.R' 'standard_rules.R'
         'ttet01.R' 'unwrap.R' 'vst01.R' 'vst02.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2025-04-15 12:55:16 UTC; falquetb
-Author: Liming Li [aut] (<https://orcid.org/0009-0008-6870-0878>, Original
-    creator of the package),
-  Benoit Falquet [aut] (<https://orcid.org/0000-0002-4434-3799>, Original
-    creator of the package),
+Packaged: 2025-06-20 13:18:36 UTC; falquetb
+Author: Liming Li [aut] (ORCID: <https://orcid.org/0009-0008-6870-0878>,
+    Original creator of the package),
+  Benoit Falquet [aut] (ORCID: <https://orcid.org/0000-0002-4434-3799>,
+    Original creator of the package),
   Xiaoli Duan [aut],
   Adrian Waddell [ctb],
   Chenkai Lv [ctb],
   Pawel Rucki [ctb],
   Tim Barnett [ctb],
   Tian Fang [ctb],
-  Joe Zhu [cre] (<https://orcid.org/0000-0001-7566-2787>),
+  Joe Zhu [cre] (ORCID: <https://orcid.org/0000-0001-7566-2787>),
   F. Hoffmann-La Roche AG [cph, fnd]
 Maintainer: Joe Zhu <joe.zhu@roche.com>
 Repository: CRAN
-Date/Publication: 2025-04-15 14:50:02 UTC
+Date/Publication: 2025-06-20 14:10:02 UTC
