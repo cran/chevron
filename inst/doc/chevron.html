@@ -48,8 +48,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -508,7 +509,7 @@ the corresponding method: <code>main</code>, <code>lyt</code>,
 <span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt;     tbl &lt;- build_table(lyt, adam_db$adae, alt_counts_df = adam_db$adsl)</span></span>
 <span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;     tbl</span></span>
 <span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x0000021945979940&gt;</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x555cf7235cc0&gt;</span></span>
 <span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; &lt;environment: namespace:chevron&gt;</span></span></code></pre></div>
 <p>These are standard functions that can be used on their own.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">preprocess</span>(aet02)(syn_data)</span>
