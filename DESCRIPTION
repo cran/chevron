@@ -1,8 +1,8 @@
 Type: Package
 Package: chevron
 Title: Standard TLGs for Clinical Trials Reporting
-Version: 0.2.13
-Date: 2026-07-17
+Version: 0.2.14
+Date: 2026-09-17
 Authors@R: c(
     person("Liming", "Li", , "liming.li@roche.com", role = "aut",
            comment = c(ORCID = "0009-0008-6870-0878", "Original creator of the package")),
@@ -50,6 +50,7 @@ Config/Needs/verdepcheck: mllg/checkmate, tidyverse/dplyr,
         rstudio/rmarkdown, r-lib/testthat, tidyverse/tidyr,
         r-lib/vdiffr, r-lib/withr
 Config/Needs/website: insightsengineering/nesttemplate
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
@@ -67,9 +68,8 @@ Collate: 'report_null.R' 'utils.R' 'chevron_tlg-S4class.R'
         'reexports.R' 'rmpt01.R' 'rmpt03.R' 'rmpt04.R' 'rmpt05.R'
         'rmpt06.R' 'rspt01.R' 'rtables_utils.R' 'standard_rules.R'
         'ttet01.R' 'unwrap.R' 'vst01.R' 'vst02.R' 'zzz.R'
-Config/roxygen2/version: 8.0.0
 NeedsCompilation: no
-Packaged: 2026-07-17 13:57:40 UTC; zhus31
+Packaged: 2026-09-16 05:35:43 UTC; zhus31
 Author: Liming Li [aut] (ORCID: <https://orcid.org/0009-0008-6870-0878>,
     Original creator of the package),
   Benoit Falquet [aut] (ORCID: <https://orcid.org/0000-0002-4434-3799>,
@@ -84,4 +84,4 @@ Author: Liming Li [aut] (ORCID: <https://orcid.org/0009-0008-6870-0878>,
   F. Hoffmann-La Roche AG [cph, fnd]
 Maintainer: Joe Zhu <joe.zhu@roche.com>
 Repository: CRAN
-Date/Publication: 2026-07-17 14:40:02 UTC
+Date/Publication: 2026-09-16 06:10:02 UTC
