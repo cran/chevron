@@ -1,8 +1,8 @@
 Type: Package
 Package: chevron
 Title: Standard TLGs for Clinical Trials Reporting
-Version: 0.2.14
-Date: 2026-09-17
+Version: 0.2.15
+Date: 2026-09-30
 Authors@R: c(
     person("Liming", "Li", , "liming.li@roche.com", role = "aut",
            comment = c(ORCID = "0009-0008-6870-0878", "Original creator of the package")),
@@ -69,7 +69,7 @@ Collate: 'report_null.R' 'utils.R' 'chevron_tlg-S4class.R'
         'rmpt06.R' 'rspt01.R' 'rtables_utils.R' 'standard_rules.R'
         'ttet01.R' 'unwrap.R' 'vst01.R' 'vst02.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2026-09-16 05:35:43 UTC; zhus31
+Packaged: 2026-09-30 05:45:22 UTC; zhus31
 Author: Liming Li [aut] (ORCID: <https://orcid.org/0009-0008-6870-0878>,
     Original creator of the package),
   Benoit Falquet [aut] (ORCID: <https://orcid.org/0000-0002-4434-3799>,
@@ -84,4 +84,4 @@ Author: Liming Li [aut] (ORCID: <https://orcid.org/0009-0008-6870-0878>,
   F. Hoffmann-La Roche AG [cph, fnd]
 Maintainer: Joe Zhu <joe.zhu@roche.com>
 Repository: CRAN
-Date/Publication: 2026-09-16 06:10:02 UTC
+Date/Publication: 2026-09-30 16:30:10 UTC

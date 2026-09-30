@@ -1,6 +1,6 @@
-3c398c65ba478aa346e675e29f59a1fd *DESCRIPTION
-9828cc0ca4db4a70445154410c2d6df6 *NAMESPACE
-aee19e8ca81b48d1436a7ee817e86d7f *NEWS.md
+03910c7408bce338551db480c5234ecc *DESCRIPTION
+571cb7dbfc3d57d9d1c597fbc2f4369e *NAMESPACE
+52f6011f4c285fc7aad9c32524353177 *NEWS.md
 b0508be8cad7c442e95962aa4ab9fcab *R/ael01_nollt.R
 304aa1922c0e79bfbac574c07483ccd7 *R/ael02.R
 9f6caa5908474ffd67d002c0657f9db1 *R/ael03.R
@@ -73,7 +73,7 @@ c37965bb164d0f532eaec78bed19e133 *R/zzz.R
 60b5b8c62318954cc90f90385c395f0f *inst/WORDLIST
 5a68c94d63d9a83f80cc4a80f0948749 *inst/doc/chevron.R
 471f0a0f63f0396fb768937eb61a5fb5 *inst/doc/chevron.Rmd
-fcddc576fb95ed056381af031a2a1c59 *inst/doc/chevron.html
+6db140b3e2263a07fff363bc1ab344ed *inst/doc/chevron.html
 28b4ca2440d8e4b6c0d049bfd0451bd4 *inst/doc/chevron_catalog.R
 ac1a7f8b2ebde56d10462c28384fe047 *inst/doc/chevron_catalog.html
 afe4b9093c16e6a33cff53aa99805ee7 *inst/doc/chevron_catalog.rmd
@@ -335,8 +335,8 @@ e0d3cca680762a5dc93f5248822bb3a7 *tests/testthat/test-egt02.R
 86ce07473a8ed78cb33b316c27426343 *tests/testthat/test-egt05_qtcat.R
 8b697bc827ae6d249ac55ee90c05af2b *tests/testthat/test-empty_report.R
 651870ec621809da36b8c2d223976dea *tests/testthat/test-ext01.R
-5c2e7fdd61bccbff8a3ee6b0d98a570f *tests/testthat/test-fstg01.R
-984e6d9db672c107c46d04d7021e45dc *tests/testthat/test-fstg02.R
+4f8ef1077bb8f1300858394321063fe7 *tests/testthat/test-fstg01.R
+b54b44544fa72804d86466030656a048 *tests/testthat/test-fstg02.R
 0ef1b88de4f674c2cf46fceb8c811181 *tests/testthat/test-kmg01.R
 c5df7984f7e8a31ed78dbeeb068b8266 *tests/testthat/test-lbt01.R
 0e3f4cc17396089a8cfcb61c77d9221d *tests/testthat/test-lbt04.R
@@ -356,7 +356,7 @@ b0b483bbb46d389b7c2a306cb1a68a3a *tests/testthat/test-rmpt01.R
 b163ef93f3d4fa97ee412fa47da27237 *tests/testthat/test-rmpt04.R
 cebc5b0e69e772038f98fb7c61077149 *tests/testthat/test-rmpt05.R
 aec707858802d36fe81fd8fbb946b992 *tests/testthat/test-rmpt06.R
-31bbbad251955abe26e50f2ff16d7a52 *tests/testthat/test-rspt01.R
+bf8c78cba9c8da8af7c13c54f027e4f5 *tests/testthat/test-rspt01.R
 20ee9a48739afb0aac1c5c9bfe38f077 *tests/testthat/test-ttet01.R
 e907cdd0aaf2efbe335b533fb0445771 *tests/testthat/test-unwrap.R
 48edeb15f58ce1aa1ab86cb5687be05b *tests/testthat/test-utils.R
